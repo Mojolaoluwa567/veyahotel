@@ -1,0 +1,27 @@
+/* landing (horizontal) only */
+.mega{position:absolute;left:var(--pad);bottom:-.14em;z-index:1;font:400 clamp(170px,36vw,700px)/.8 var(--serif);letter-spacing:-.04em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(239,232,218,.38);pointer-events:none;user-select:none;will-change:transform}
+#hero .in{z-index:2}
+.hint{left:auto;right:var(--pad);z-index:2}
+#intro .no,#well .no{color:var(--wine)}
+.more{flex:none;width:clamp(130px,13vw,190px);aspect-ratio:1;border:1px solid currentColor;border-radius:50%;display:grid;place-content:center;text-align:center;font:400 clamp(20px,1.8vw,26px)/1.1 var(--serif);margin-inline:clamp(8px,2vw,32px);transition:background .35s,color .35s,border-color .35s,transform .35s}
+.more small{display:block;font:300 12px var(--sans);opacity:.7;margin-top:6px}
+.more:hover,.more:focus-visible{background:var(--gold);color:var(--ink);border-color:var(--gold);transform:scale(1.07)}
+#well .ph:last-of-type{height:44vh;width:clamp(200px,20vw,300px);align-self:flex-end;margin-bottom:10vh}
+#sky .btn{margin-top:28px}
+#ch{position:fixed;left:var(--pad);bottom:calc(20px + env(safe-area-inset-bottom));z-index:18;display:flex;gap:12px;align-items:baseline;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;pointer-events:none;transition:color .35s}
+#ch b{font:400 22px var(--serif);letter-spacing:0}
+#end{width:max(100vw,940px);gap:clamp(24px,5vw,80px)}
+#end .in{width:min(60vw,640px);flex:none}
+#end .btn+.btn{margin-left:10px;background:transparent;color:var(--bone);border:1px solid rgba(239,232,218,.5)}
+#end .ph{height:66vh;width:clamp(200px,26vw,360px)}
+.rm #ch{display:none}
+@media(max-width:760px){
+ #well .ph:last-of-type{width:50vw;height:36vh}
+ #end .in{width:84vw}#end .ph{display:none}#end{width:100vw;min-width:100vw}
+ .mega{font-size:52vw}#ch{display:none}
+}
+
+nav{mix-blend-mode:normal;color:#fff;transition:color .35s}
+body.lt nav,body.lt #ch{color:var(--ink)}
+body.lt:has(.menu.open) nav{color:var(--bone)}
+.ph img,#hero .bg img,#sky .bg img{backface-visibility:hidden}

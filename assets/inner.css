@@ -1,0 +1,43 @@
+/* inner pages: vertical, reading-friendly, same look */
+body.in{overflow-x:hidden}
+.wrap{padding:0 var(--pad);max-width:1400px;margin:0 auto}
+.sec{padding:clamp(56px,9vw,120px) 0}
+.rh{position:relative;min-height:88vh;min-height:88svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.rh>img{position:absolute;inset:-5% 0;height:110%}
+.rh:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,20,16,.9),rgba(8,20,16,.15) 60%),linear-gradient(90deg,rgba(8,20,16,.5),transparent 60%)}
+.rh .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(36px,6vw,80px)}
+.rh h1{font-size:clamp(44px,7.4vw,118px)}
+.crumb{font-size:13px;opacity:.75;margin-bottom:16px}.crumb a{text-decoration:underline;text-underline-offset:3px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(239,232,218,.18);border-block:1px solid rgba(239,232,218,.18)}
+.facts div{background:var(--ink);padding:26px 20px}
+.facts small{display:block;font-size:12px;opacity:.55;letter-spacing:.06em;text-transform:uppercase}
+.facts b{font:400 clamp(22px,2.4vw,32px)/1.2 var(--serif);display:block;margin-top:6px}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,6vw,100px)}
+.two p{opacity:.8;max-width:56ch}.two p+p{margin-top:16px}
+.am{list-style:none;display:grid;gap:0}
+.am li{padding:14px 0;border-bottom:1px solid rgba(239,232,218,.16);display:flex;gap:12px;font-size:15px}
+.am li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:9px;flex:none}
+.price{font:400 clamp(28px,3vw,40px) var(--serif);color:var(--gold)}.price small{font:300 14px var(--sans);color:var(--bone);opacity:.6}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:none;justify-content:space-between;align-items:center;gap:12px;padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));background:rgba(15,33,28,.96);border-top:1px solid rgba(239,232,218,.18)}
+.bar .btn{margin:0;padding:12px 22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,28px)}
+.card{display:block}.card .ph{aspect-ratio:4/5;border-radius:4px}.card img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}.card:hover img{transform:scale(1.05)}
+.card h3,.rm h2{font:400 clamp(22px,2vw,28px)/1.2 var(--serif);margin-top:14px}.card p{font-size:14px;opacity:.65}.card b{color:var(--gold);font-weight:400}
+.ov{display:grid;gap:clamp(56px,8vw,110px)}
+.rm{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.rm:nth-child(even){grid-template-columns:1fr 1.15fr}.rm:nth-child(even) .ph{order:2}
+.rm .ph{aspect-ratio:4/3;border-radius:4px;display:block}
+.rm h2{font-size:clamp(34px,4.4vw,64px);margin-top:0;line-height:1}
+.rm .meta{font-size:14px;opacity:.65;margin:14px 0 6px}
+.rm .lead{margin-top:10px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}.row .btn{margin:0}
+.lnk{border-bottom:1px solid currentColor;padding-bottom:2px;font-size:15px}
+.ft{background:#0a1814;padding:clamp(48px,7vw,90px) 0 calc(36px + env(safe-area-inset-bottom));font-size:14px}
+.ft .g4{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.ft h5{font:500 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;opacity:.5;margin-bottom:12px}
+.ft a{display:block;opacity:.8;padding:3px 0}.ft p{opacity:.7;max-width:34ch}
+.ft .logo{font:400 30px var(--serif);margin-bottom:12px}.ft .cp{margin-top:40px;opacity:.45;font-size:12px}
+[data-r]{opacity:0;transform:translateY(34px)}.nomo [data-r]{opacity:1;transform:none}
+@media(max-width:860px){.facts{grid-template-columns:1fr 1fr}.two,.rm,.rm:nth-child(even){grid-template-columns:1fr}.rm:nth-child(even) .ph{order:0}.ft .g4{grid-template-columns:1fr 1fr}.ft .g4>div:first-child{grid-column:1/-1}.bar{display:flex}.ft{padding-bottom:90px}}
+body.in nav{transition:background .3s,backdrop-filter .3s;mix-blend-mode:normal;color:var(--bone)}
+body.in nav.sc{background:rgba(15,33,28,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
