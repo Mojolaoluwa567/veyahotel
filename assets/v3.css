@@ -1,9 +1,15 @@
 /* v3 shared: page transitions, cursor, marquee, reserve form */
-.curtain{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;clip-path:inset(100% 0 0 0);transition:clip-path .8s cubic-bezier(.76,0,.24,1);pointer-events:none;will-change:clip-path}
-.curtain b{font:400 clamp(44px,9vw,120px) var(--serif);letter-spacing:-.02em;color:var(--bone)}
-.cv .curtain{clip-path:inset(0);transition:none}
-.out .curtain{clip-path:inset(0 0 100% 0)}
-.leave .curtain{clip-path:inset(0);pointer-events:auto}
+.curtain{position:fixed;inset:0;z-index:100;display:flex;pointer-events:none}
+.curtain i{flex:1;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .65s cubic-bezier(.76,0,.24,1);transition-delay:calc(var(--i)*55ms);will-change:transform;margin-right:-1px}
+.curtain i:nth-child(even){background:#14302a}
+.curtain b{position:absolute;inset:0;display:grid;place-items:center;font:400 clamp(44px,9vw,120px) var(--serif);letter-spacing:-.02em;color:var(--bone);opacity:0;transition:opacity .3s}
+.cv .curtain i{transform:scaleY(1);transition:none}.cv .curtain b{opacity:1}
+.out .curtain i{transform:scaleY(0);transform-origin:top}
+.leave .curtain i{transform:scaleY(1)}.leave .curtain b{opacity:1;transition-delay:.45s}
+.curtain.nt i,.curtain.nt b{transition:none!important}
+.sls{position:absolute;inset:0;display:flex;overflow:hidden}
+.sl{position:relative;flex:1;overflow:hidden}
+.rh>.sls{inset:-5% 0}
 .cur{position:fixed;left:0;top:0;z-index:99;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--gold);pointer-events:none;display:none;place-items:center;transition:width .3s,height .3s,margin .3s}
 .cur span{font:500 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);opacity:0;transition:opacity .2s}
 .cur.big{width:84px;height:84px;margin:-42px 0 0 -42px}.cur.big span{opacity:1}

@@ -2,16 +2,16 @@
 const d=document,h=d.documentElement;
 const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let cv=d.querySelector('.curtain');
-if(!cv){cv=d.createElement('div');cv.className='curtain';cv.setAttribute('aria-hidden','true');cv.innerHTML='<b>Veya</b>';d.body.prepend(cv)}
+if(!cv){cv=d.createElement('div');cv.className='curtain';cv.setAttribute('aria-hidden','true');cv.innerHTML=[0,1,2,3,4,5].map(i=>'<i style="--i:'+i+'"></i>').join('')+'<b>Veya</b>';d.body.prepend(cv)}
 
 // ---- arrive: curtain is already covering (static markup + .cv), wait for fonts + hero image, then wipe up
 let lifted=false;
-const reset=()=>{cv.style.transition='none';h.classList.remove('out');void cv.offsetHeight;cv.style.transition=''};
+const reset=()=>{cv.classList.add('nt');h.classList.remove('out');void cv.offsetHeight;cv.classList.remove('nt')};
 const lift=()=>{
  if(lifted)return;lifted=true;
  h.classList.remove('cv');h.classList.add('out');
  setTimeout(()=>{window.veyaReady=true;dispatchEvent(new Event('veya:ready'))},380);
- setTimeout(reset,900);
+ setTimeout(reset,1300);
 };
 const hi=d.querySelector('.rh>img,#hero .bg img');
 Promise.all([d.fonts&&d.fonts.ready,hi&&hi.decode?hi.decode().catch(()=>{}):0]).then(()=>setTimeout(lift,250));
@@ -28,8 +28,9 @@ const leave=url=>{
  window.lenis&&lenis.stop();
  reset();
  let done=false;const fin=()=>{if(done)return;done=true;location.href=url};
- cv.addEventListener('transitionend',e=>{if(e.target===cv)fin()});
- setTimeout(fin,1000);
+ const cols=cv.querySelectorAll('i'),last=cols[cols.length-1];
+ cv.addEventListener('transitionend',e=>{if(e.target===last&&e.propertyName==='transform')fin()});
+ setTimeout(fin,1500);
  requestAnimationFrame(()=>requestAnimationFrame(()=>h.classList.add('leave')));
 };
 d.addEventListener('click',e=>{
